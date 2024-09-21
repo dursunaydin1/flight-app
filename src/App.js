@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Header from "./components/Header";
+import MainContent from "./components/MainContent";
+import MyFlights from "./components/MyFlights";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="min-h-screen bg-purple-100 flex items-center justify-center">
+        <div className="bg-purple-50 w-full max-w-screen-2xl rounded-xl shadow-lg overflow-hidden my-20 mx-10">
+          <Header />
+          <Routes>
+            <Route path="/" element={<MainContent />} />
+            <Route path="/my-flights" element={<MyFlights />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
 

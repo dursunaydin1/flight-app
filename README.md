@@ -1,70 +1,124 @@
-# Getting Started with Create React App
+# Uçuş Rezervasyon Uygulaması
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bu proje, kullanıcıların uçuşları arayıp rezervasyon yapabilmeleri için oluşturulmuş bir uçuş rezervasyon uygulamasıdır. Kullanıcılar, kalkış ve varış noktalarını, tarihleri ve diğer filtreleri seçerek istedikleri uçuşları bulabilir ve rezervasyon yapabilir.
 
-## Available Scripts
+## İçindekiler
 
-In the project directory, you can run:
+1. [Kullanılan Teknolojiler](#kullanılan-teknolojiler)
+2. [Kurulum](#kurulum)
+3. [Proje Yapısı](#proje-yapısı)
+4. [Bileşenler](#bileşenler)
+   - [Header](#header)
+   - [MainContent](#maincontent)
+   - [FlightSearchBar](#flightsearchbar)
+   - [FlightList](#flightlist)
+   - [FlightFilters](#flightfilters)
+   - [Sidebar](#sidebar)
+   - [MyFlights](#myflights)
+5. [Kullanım](#kullanım)
+6. [Katkıda Bulunma](#katkıda-bulunma)
+7. [Lisans](#lisans)
 
-### `npm start`
+## Kullanılan Teknolojiler
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React**: Kullanıcı arayüzünü oluşturmak için.
+- **Next.js**: Proje yapısını ve sayfa yönlendirmelerini yönetmek için.
+- **Tailwind CSS**: Arayüz stil ve tasarımını oluşturmak için.
+- **React Icons**: İkonları kullanmak için.
+- **ApexCharts**: Veri görselleştirmesi yapmak için (Opsiyonel).
+- **MUI (Material-UI)**: Bazı arayüz bileşenleri için (Opsiyonel).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Kurulum
 
-### `npm test`
+1. Bu projeyi yerel makinenize klonlayın:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```bash
+   git clone https://github.com/kullanici_adi/ucus-rezervasyon.git
+   ```
 
-### `npm run build`
+2. Proje dizinine girin:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   cd ucus-rezervasyon
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Gerekli bağımlılıkları yükleyin:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   npm install
+   ```
 
-### `npm run eject`
+4. Uygulamayı başlatın:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   npm run dev
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. Tarayıcınızda `http://localhost:3000` adresine gidin.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Proje Yapısı
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+/ucus-rezervasyon # Proje ana dizini
+├── /components # React bileşenlerini içeren klasör
+│ ├── Header.js # Başlık bileşeni
+│ ├── MainContent.js # Ana içerik bileşeni
+│ ├── FlightSearchBar.js # Uçuş arama çubuğu bileşeni
+│ ├── FlightList.js # Uçuş listesini gösteren bileşen
+│ ├── FlightFilters.js # Uçuş filtreleme seçenekleri bileşeni
+│ ├── Sidebar.js # Yan panel bileşeni
+│ └── MyFlights.js # Kullanıcının rezervasyon yaptığı uçuşları gösteren bileşen
+├── /pages # Sayfaları içeren klasör
+│ ├── index.js # Ana sayfa
+│ └── \_app.js # Uygulama bileşeni (sayfa geçişlerini yönetir)
+├── /public # Statik dosyaları içeren klasör (görseller, fontlar vb.)
+│ └── images # Projeye ait görseller
+├── /styles # Stil dosyaları
+│ └── globals.css # Global stiller
+├── package.json # Proje bağımlılıkları ve komutları
+└── README.md # Proje bilgilerini içeren dosya
 
-## Learn More
+## Bileşenler
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Header
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Uygulamanın üst kısmında bulunan ve kullanıcı adı ile menü seçeneklerinin yer aldığı bileşen. İkonlar ve başlıklar içerir.
 
-### Code Splitting
+### MainContent
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Ana içeriği barındıran bileşen. `FlightSearchBar`, `FlightList`, `FlightFilters` ve `Sidebar` bileşenlerini içerir.
 
-### Analyzing the Bundle Size
+### FlightSearchBar
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Kullanıcının uçuş araması yapabilmesi için kalkış, varış ve tarih bilgilerini girebileceği arama çubuğunu barındırır.
 
-### Making a Progressive Web App
+### FlightList
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Arama sonuçlarına göre listelenen uçuş bilgilerini gösterir. Uçuş süresi, kalkış ve varış saatleri ve fiyat bilgilerini içerir.
 
-### Advanced Configuration
+### FlightFilters
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Uçuşları fiyat, kalkış/varış saatleri, durak sayısı ve havayolu gibi filtrelere göre sıralamak için seçenekler sunar.
 
-### Deployment
+### Sidebar
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Kullanıcıya araba kiralama, oteller ve diğer seyahat seçenekleri hakkında bilgiler sunan bir yan paneldir.
 
-### `npm run build` fails to minify
+### MyFlights
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Kullanıcının yaptığı rezervasyonları ve geçmişteki uçuşlarını görüntülemesine olanak tanır. Uçuş detaylarını ve kullanıcıya özel bilgileri içerir.
+
+## Kullanım
+
+1. Uygulamayı başlattıktan sonra `Book Your Flight` bölümüne kalkış ve varış noktalarını girin.
+2. Tarihleri seçin ve `Show flights` butonuna tıklayın.
+3. Sonuçlar `Flight List` bölümünde listelenecektir.
+4. `Flight Filters` bölümünden uçuşları filtreleyebilirsiniz.
+5. Bir uçuşu seçmek için `Book Flight` butonuna tıklayın ve rezervasyon işleminizi tamamlayın.
+
+## Katkıda Bulunma
+
+Bu projeye katkıda bulunmak isterseniz, lütfen bir `pull request` gönderin. Önerileriniz ve geliştirmeleriniz için teşekkür ederiz!
+
+## Lisans
+
+Bu proje [MIT Lisansı](https://opensource.org/licenses/MIT) altında lisanslanmıştır. Detaylar için `LICENSE` dosyasını inceleyin.
